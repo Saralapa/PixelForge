@@ -1,0 +1,20 @@
+# PixelForge — dependências
+#
+# Instale o PyTorch primeiro, com o comando certo para a SUA GPU, a partir de
+# https://pytorch.org/get-started/locally/  (escolha CUDA 12.1 para placas
+# NVIDIA como a RTX 2080 Super). Exemplo:
+#
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+#
+# Depois instale o resto:
+#
+#   pip install -r requirements.txt
+
+diffusers>=0.30.0
+transformers>=4.42.0
+accelerate>=0.32.0
+safetensors>=0.4.3
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+pillow>=10.3.0
+pydantic>=2.7.0

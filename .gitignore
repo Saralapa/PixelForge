@@ -1,0 +1,22 @@
+# Pesos de modelo (vários GB — baixados por scripts/download_model.py)
+# As pastas são recriadas automaticamente por app/config.py ao iniciar.
+models/
+*.safetensors
+*.ckpt
+
+# Imagens geradas
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

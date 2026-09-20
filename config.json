@@ -1,0 +1,30 @@
+{
+  "_comment": "Configuração do PixelForge. Edite os valores abaixo; comentários aqui são só documentação e são ignorados pelo carregador.",
+
+  "pipeline": "sd15",
+  "_pipeline_options": "sd15 | sdxl",
+
+  "model_source": "hf",
+  "_model_source_options": "hf (baixa/usa cache do Hugging Face em ./models) | file (usa um .safetensors local)",
+
+  "model_id": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "_model_id_note": "Usado quando model_source = hf. Para SDXL, troque para 'stabilityai/stable-diffusion-xl-base-1.0' e pipeline para 'sdxl'.",
+
+  "model_file": "models/meu-modelo.safetensors",
+  "_model_file_note": "Usado quando model_source = file. Caminho para um checkpoint .safetensors já baixado (ex.: de civitai.com).",
+
+  "host": "127.0.0.1",
+  "port": 7860,
+
+  "defaults": {
+    "negative_prompt": "",
+    "width": 512,
+    "height": 512,
+    "steps": 25,
+    "guidance_scale": 7.5,
+    "num_images": 1,
+    "seed": -1
+  },
+
+  "_defaults_note_sdxl": "Para SDXL, use width/height 1024 e steps 30."
+}
