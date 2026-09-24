@@ -97,7 +97,13 @@ def _apply_memory_optimizations(pipe, device: str, pipeline_kind: str) -> None:
     # Reduz o pico de VRAM fatiando a atenção e o decode do VAE — mantém
     # tudo confortável em placas de 8 GB como a RTX 2080 Super.
     pipe.enable_attention_slicing()
-    pipe.enable_vae_slicing()
+    # pipe.enable_vae_slicing() foi removido nas versões novas do diffusers;
+    # o jeito atual é chamar direto no VAE. Mantém o fallback para as antigas.
+    vae = getattr(pipe, "vae", None)
+    if vae is not None and hasattr(vae, "enable_slicing"):
+        vae.enable_slicing()
+    elif hasattr(pipe, "enable_vae_slicing"):
+        pipe.enable_vae_slicing()
     if pipeline_kind == "sdxl" and device == "cuda":
         # SDXL em 1024x1024 é pesado demais para caber tranquilo em 8 GB;
         # offload move módulos para a CPU quando não estão em uso.
